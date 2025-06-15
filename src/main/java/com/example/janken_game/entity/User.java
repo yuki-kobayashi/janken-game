@@ -11,7 +11,7 @@ import java.util.Objects;
 // データベースのテーブルに対応するエンティティ
 @Entity
 // テーブル名
-@Table(name = "users")
+@Table(name = "janken_users")
 public class User implements UserDetails  {
     // 主キー
     @Id
