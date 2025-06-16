@@ -19,9 +19,17 @@ public class JankenController {
 
     @GetMapping("/")
     public String showHome(Model model, Authentication authentication) {
+        // ログインしているか判定
         if (authentication != null && authentication.isAuthenticated()) {
-            String username = authentication.getName();
-            model.addAttribute("username", username);
+            String email = authentication.getName();
+
+            // ユーザー情報をデータベースから取得
+            User user = userRepository.findByEmail(email).orElse(null);
+
+            if (user != null) {
+                 // プレイヤー名をテンプレートへ渡す
+                model.addAttribute("username", user.getUsername());
+            }
         }
         return "index";
     }
