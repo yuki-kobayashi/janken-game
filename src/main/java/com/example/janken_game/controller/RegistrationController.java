@@ -30,7 +30,7 @@ public class RegistrationController {
                                @RequestParam String password,
                                Model model) {
 
-        // メールアドレスの入力チェック
+        // メールアドレスの重複チェック
         if (userRepository.findByEmail(email).isPresent()) {
             model.addAttribute("error", "このメールアドレスはすでに使用されています。");
             model.addAttribute("username", username);
@@ -38,9 +38,17 @@ public class RegistrationController {
             return "register";
         }
 
-        // ユーザー名の入力チェック
+        // ユーザー名の重複チェック
         if (userRepository.findByUsername(username).isPresent()) {
             model.addAttribute("error", "このユーザー名はすでに使用されています。");
+            model.addAttribute("username", username);
+            model.addAttribute("email", email);
+            return "register";
+        }
+
+        // ユーザー名の形式チェック(日本語・英数字OK、記号NG)
+        if (!username.matches("^[\\p{IsHan}\\p{IsHiragana}\\p{IsKatakana}a-zA-Z0-9]+$")) {
+            model.addAttribute("error", "ユーザー名に記号は使用できません。");
             model.addAttribute("username", username);
             model.addAttribute("email", email);
             return "register";
