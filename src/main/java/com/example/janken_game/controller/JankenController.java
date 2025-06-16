@@ -18,7 +18,11 @@ public class JankenController {
     private final UserRepository userRepository;
 
     @GetMapping("/")
-    public String showHome() {
+    public String showHome(Model model, Authentication authentication) {
+        if (authentication != null && authentication.isAuthenticated()) {
+            String username = authentication.getName();
+            model.addAttribute("username", username);
+        }
         return "index";
     }
 
