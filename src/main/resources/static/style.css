@@ -149,8 +149,6 @@ table {
     top: 50%;
     right: 15px;
     transform: translateY(-50%);
-    display: flex;
-    align-items: center;
     cursor: pointer;
     color: #888;
     z-index: 2;

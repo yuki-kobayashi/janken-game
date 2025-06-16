@@ -24,15 +24,17 @@
                 <label for="email" class="form-label">メールアドレス：</label>
                 <input type="email" id="email" name="email" th:value="${email}" class="form-control" required>
             </div>
-            <div class="mb-3 password-toggle-wrapper position-relative">
+            <div class="mb-3">
                 <label for="password" class="form-label">
                     パスワード：
                     <span class="text-danger ms-2">※半角英数字8文字以上で入力してください</span>
                 </label>
-                <input type="password" id="password" name="password" class="form-control pe-5" required>
-                <span class="password-toggle-icon" onclick="togglePassword('password', this)">
-                    <i class="fa-solid fa-eye"></i>
-                </span>
+                <div class="password-input-wrapper position-relative">
+                    <input type="password" id="password" name="password" class="form-control pe-5" required>
+                    <span class="password-toggle-icon" onclick="togglePassword('password', this)">
+                        <i class="fa-solid fa-eye"></i>
+                    </span>
+                </div>
             </div>
             <button class="btn btn-success w-100" type="submit">登録</button>
         </form>
