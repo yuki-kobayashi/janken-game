@@ -1,5 +1,6 @@
 /* 全体の背景 */
 body {
+    min-height: 100vh;
     background: linear-gradient(to bottom, #eee8e9, #8ad7eb);
 }
 
