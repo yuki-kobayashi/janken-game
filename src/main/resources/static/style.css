@@ -1,14 +1,11 @@
 /* 全体の背景 */
 body {
-    min-height: 100vh;
     background: linear-gradient(to bottom, #eee8e9, #8ad7eb);
 }
 
 html, body {
     height: 100%;
     margin: 0;
-    padding: 0;
-    overflow-x: hidden;
 }
 
 /* 全体のコンテナ */
@@ -149,8 +146,9 @@ table {
 
 .password-toggle-icon {
     position: absolute;
-    top: 42px;
+    top: 50%;
     right: 15px;
+    transform: translateY(-50%);
     display: flex;
     align-items: center;
     cursor: pointer;
