@@ -22,7 +22,9 @@
             </div>
             <div class="mb-3 password-toggle-wrapper position-relative">
                 <label for="password" class="form-label">パスワード：</label>
-                <input type="password" id="password" name="password" class="form-control pe-5" required>
+                <input type="password" id="password" name="password" class="form-control pe-5"
+                    required minlength="8" pattern="[a-zA-Z0-9]+" 
+                    title="半角英数字8文字以上で入力してください">
                 <span class="password-toggle-icon" onclick="togglePassword('password', this)">
                     <i class="fa-solid fa-eye"></i>
                 </span>

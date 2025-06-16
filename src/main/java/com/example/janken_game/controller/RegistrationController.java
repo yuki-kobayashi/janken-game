@@ -54,6 +54,14 @@ public class RegistrationController {
             return "register";
         }
 
+        // パスワードの形式チェック（半角英数字8文字以上）
+        if (!password.matches("^[a-zA-Z0-9]{8,}$")) {
+            model.addAttribute("error", "パスワードは半角英数字8文字以上で入力してください。");
+            model.addAttribute("username", username);
+            model.addAttribute("email", email);
+            return "register";
+        }
+
         String encodedPassword = passwordEncoder.encode(password);
         User user = new User(username, email, encodedPassword);
         userRepository.save(user);
