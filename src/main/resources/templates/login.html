@@ -16,12 +16,14 @@
                 <label for="username" class="form-label">メールアドレス：</label>
                 <input type="text" id="username" name="username" class="form-control" required>
             </div>
-            <div class="mb-3 password-toggle-wrapper position-relative">
+           <div class="mb-3">
                 <label for="password" class="form-label">パスワード：</label>
-                <input type="password" id="password" name="password" class="form-control pe-5" required>
-                <span class="password-toggle-icon" onclick="togglePassword('password', this)">
-                    <i class="fa-solid fa-eye"></i>
-                </span>
+                <div class="password-input-wrapper position-relative">
+                    <input type="password" id="password" name="password" class="form-control pe-5" required>
+                    <span class="password-toggle-icon" onclick="togglePassword('password', this)">
+                        <i class="fa-solid fa-eye"></i>
+                    </span>
+                </div>
             </div>
             <div th:if="${param.error}" class="alert alert-danger text-center" role="alert">
                 メールアドレスまたはパスワードが正しくありません。
