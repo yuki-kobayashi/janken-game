@@ -38,6 +38,14 @@ public class RegistrationController {
             return "register";
         }
 
+        // メールアドレスの形式チェック
+        if (!email.matches("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")) {
+            model.addAttribute("error", "有効なメールアドレス形式で入力してください。");
+            model.addAttribute("username", username);
+            model.addAttribute("email", email);
+            return "register";
+        }
+
         // ユーザー名の重複チェック
         if (userRepository.findByUsername(username).isPresent()) {
             model.addAttribute("error", "このユーザー名はすでに使用されています。");
