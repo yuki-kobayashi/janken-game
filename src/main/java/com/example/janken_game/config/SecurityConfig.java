@@ -1,7 +1,7 @@
 package com.example.janken_game.config;
 
-import com.example.janken_game.service.CustomUserDetailsService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.janken_game.service.UserService;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -17,8 +17,11 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class SecurityConfig {
 
-    @Autowired
-    private CustomUserDetailsService userDetailsService;
+    private final UserService userService;
+
+    public SecurityConfig(UserService userService) {
+        this.userService = userService;
+    }
 
     // パスワードのエンコーダー(暗号化)をBeanとして登録
     @Bean
@@ -30,7 +33,7 @@ public class SecurityConfig {
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-        authProvider.setUserDetailsService(userDetailsService);
+        authProvider.setUserDetailsService(userService);
         authProvider.setPasswordEncoder(passwordEncoder());
         return authProvider;
     }
@@ -39,6 +42,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http // HTTPリクエストごとのアクセスルール
+            .authenticationProvider(authenticationProvider())
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers(
         "/register", "/register/complete", "/login", "/login/**", 
@@ -62,8 +66,7 @@ public class SecurityConfig {
 
             // Frameの表示とCSRF無効化を行う(H2コンソール用の設定)
             .csrf(csrf -> csrf.ignoringRequestMatchers("/h2-console/**"))
-            .headers(headers -> headers.frameOptions().sameOrigin())
-            .userDetailsService(userDetailsService);
+            .headers(headers -> headers.frameOptions().sameOrigin());
 
         return http.build();
     }
@@ -78,6 +81,6 @@ public class SecurityConfig {
 
     @Bean
     public UserDetailsService userDetailsService() {
-        return userDetailsService;
+        return userService;
     }
 }
