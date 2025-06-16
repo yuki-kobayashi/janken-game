@@ -49,8 +49,8 @@ public class JankenController {
 
             // 勝利数カウント
             Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-            String username = auth.getName();
-            User user = userRepository.findByUsername(username).orElse(null);
+            String email = auth.getName();
+            User user = userRepository.findByEmail(email).orElse(null);
             if (user != null) {
                 user.incrementWinCount();
                 userRepository.save(user);
