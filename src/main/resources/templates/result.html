@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>結果</title>
-    <link rel="stylesheet" th:href="@{/style.css}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="d-flex justify-content-center align-items-center custom-height">
-    <div class="container text-center">
-        <h1>結果</h1>
-        <p>あなたの手：<span th:text="${playerHand}"></span></p>
-        <p>コンピュータの手：<span th:text="${cpuHand}"></span></p>
-        <p>結果：<span th:text="${result}"></span></p>
-        <a href="/">もう一度</a>
+<head><title>結果</title></head>
+<body th:with="title='result :: title', content='result :: content'">
+    <div th:fragment="content">
+        <div class="container text-center">
+            <h1>結果</h1>
+            <p>あなたの手：<span th:text="${playerHand}"></span></p>
+            <p>コンピュータの手：<span th:text="${cpuHand}"></span></p>
+            <p>結果：<span th:text="${result}"></span></p>
+            <a href="/">もう一度</a>
+        </div>
     </div>
 </body>
+</html>
