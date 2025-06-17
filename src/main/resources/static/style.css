@@ -32,6 +32,11 @@ html, body {
     min-width: 220px;
 }
 
+.janken-form button:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s;
+}
+
 /* タイトル */
 h1 {
     font-size: 36px;
