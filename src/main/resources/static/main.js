@@ -1,3 +1,4 @@
+// パスワード表示切り替え
 function togglePassword(fieldId, iconElement) {
     const passwordField = document.getElementById(fieldId);
     const icon = iconElement.querySelector('i');
@@ -28,3 +29,20 @@ function playWithAnimation(hand) {
         window.location.href = `/play?hand=${encodeURIComponent(hand)}`;
     }, 2000);
 }
+
+// ウェルカム画面アニメーション
+function startWelcomeTransition() {
+    const box = document.getElementById('welcomeBox');
+    if (box) {
+        setTimeout(() => {
+            box.classList.add('fade-out');
+            setTimeout(() => {
+                window.location.href = "/";
+            }, 1000);
+        }, 3000);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    startWelcomeTransition();
+});

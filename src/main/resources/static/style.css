@@ -163,3 +163,38 @@ table {
     color: #888;
     z-index: 2;
 }
+
+/* Welcome画面アニメーション */
+.fade-in {
+    animation: fadeIn 1.5s ease-in;
+}
+
+.fade-out {
+    animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* スピナーのサイズ調整（Bootstrap Spinner） */
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+}
