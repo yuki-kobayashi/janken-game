@@ -1,7 +1,11 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head><title>ユーザー登録</title></head>
-<body th:with="title='register :: title', content='register :: content'">
+<div xmlns:th="http://www.thymeleaf.org"
+     th:with="title='register :: title', content='register :: content'"
+     th:replace="~{base :: layout}">
+
+    <th:block th:fragment="title">
+        <title>ユーザー登録</title>
+    </th:block>
+
     <div th:fragment="content">
         <div class="login-box">
             <h1 class="text-center mb-4">ユーザー登録</h1>
@@ -29,5 +33,4 @@
         </div>
         <a th:href="@{/login}" class="btn btn-secondary mt-3">← 戻る</a>
     </div>
-</body>
-</html>
+</div>

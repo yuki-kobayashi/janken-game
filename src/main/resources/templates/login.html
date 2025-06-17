@@ -1,9 +1,11 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>ログイン</title>
-</head>
-<body th:with="title='login :: title', content='login :: content'" th:replace="~{base :: layout}">
+<div xmlns:th="http://www.thymeleaf.org"
+     th:with="title='login :: title', content='login :: content'"
+     th:replace="~{base :: layout}">
+
+    <th:block th:fragment="title">
+        <title>ログイン</title>
+    </th:block>
+
     <div th:fragment="content">
         <div class="login-box">
             <h1 class="text-center mb-4">じゃんけんゲーム</h1>
@@ -29,5 +31,4 @@
             <p class="mt-3 text-center">アカウントをお持ちでない方は <a th:href="@{/register}">こちら</a></p>
         </div>
     </div>
-</body>
-</html>
+</div>

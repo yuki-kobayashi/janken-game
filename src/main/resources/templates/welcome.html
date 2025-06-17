@@ -1,7 +1,11 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head><title>ようこそ</title></head>
-<body th:with="title='welcome :: title', content='welcome :: content'">
+<div xmlns:th="http://www.thymeleaf.org"
+     th:with="title='welcome :: title', content='welcome :: content'"
+     th:replace="~{base :: layout}">
+
+    <th:block th:fragment="title">
+        <title>ようこそ</title>
+    </th:block>
+
     <div th:fragment="content">
         <div id="welcomeBox" class="text-center">
             <h1 class="display-4 mb-3">じゃんけんゲームへようこそ！</h1>
@@ -11,5 +15,4 @@
             </div>
         </div>
     </div>
-</body>
-</html>
+</div>
