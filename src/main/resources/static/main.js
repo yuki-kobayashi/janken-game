@@ -39,7 +39,7 @@ function startWelcomeTransition() {
             setTimeout(() => {
                 window.location.href = "/";
             }, 1000);
-        }, 3000);
+        }, 4000);
     }
 }
 
