@@ -44,14 +44,14 @@ public class SecurityConfig {
                 .requestMatchers(
         "/register", "/register/complete", "/login", "/login/**", 
                     "/style.css",  "/js/**", "/images/**", "/main.js",
-                    "/h2-console/**"
+                    "/h2-console/**", "/welcome"
                 ).permitAll() // 未ログインでもアクセス可能
                 .anyRequest().authenticated() // それ以外はログインが必要
             )
             // ログイン時の設定
             .formLogin(login -> login
                 .loginPage("/login") // ログインページ
-                .defaultSuccessUrl("/", true)
+                .defaultSuccessUrl("/welcome", true) // ログイン後、ウェルカムページに遷移
                 .failureUrl("/login?error")
                 .permitAll()
             )
