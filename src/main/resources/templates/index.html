@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head><title>じゃんけんゲーム</title></head>
-<body th:with="title='index :: title', content='index :: content'">
+<head>
+    <title th:fragment="title">じゃんけんゲーム</title>
+</head>
+<body th:with="title='index :: title', content='index :: content'" th:replace="~{base :: layout}">
     <div th:fragment="content">
         <div class="position-absolute top-0 mt-5 text-end">
             <span class="fw-bold">ようこそ <span th:text="${username}"></span> さん</span>

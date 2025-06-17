@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head><title>ログイン</title></head>
-<body th:with="title='login :: title', content='login :: content'">
+<head>
+    <title>ログイン</title>
+</head>
+<body th:with="title='login :: title', content='login :: content'" th:replace="~{base :: layout}">
     <div th:fragment="content">
         <div class="login-box">
             <h1 class="text-center mb-4">じゃんけんゲーム</h1>
