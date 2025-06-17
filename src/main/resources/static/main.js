@@ -26,5 +26,5 @@ function playWithAnimation(hand) {
 
     setTimeout(() => {
         window.location.href = `/play?hand=${encodeURIComponent(hand)}`;
-    }, 3000);
+    }, 2000);
 }
