@@ -6,6 +6,9 @@ body {
 html, body {
     height: 100%;
     margin: 0;
+}
+
+.custom-height {
     min-height: 100vh;
     min-height: 100dvh;
 }
