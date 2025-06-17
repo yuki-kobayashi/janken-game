@@ -16,9 +16,9 @@
         <h1 class="mb-4">じゃんけんゲーム</h1>
         <form action="/play" method="get" class="janken-form">
             <div class="d-flex flex-column gap-2">
-                <button class="btn btn-primary" type="submit" name="hand" value="グー">✊ グー</button>
-                <button class="btn btn-primary" type="submit" name="hand" value="チョキ">✌️ チョキ</button>
-                <button class="btn btn-primary" type="submit" name="hand" value="パー">🖐️ パー</button>
+                <button class="btn btn-primary" type="button" onclick="playWithAnimation('グー')">✊ グー</button>
+                <button class="btn btn-primary" type="button" onclick="playWithAnimation('チョキ')">✌️ チョキ</button>
+                <button class="btn btn-primary" type="button" onclick="playWithAnimation('パー')">🖐️ パー</button>
             </div>
         </form>
         <form action="/ranking" method="get" class="mb-4">

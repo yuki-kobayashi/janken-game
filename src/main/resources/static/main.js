@@ -12,3 +12,19 @@ function togglePassword(fieldId, iconElement) {
         icon.classList.add("fa-eye");
     }
 }
+
+// じゃんけんアニメーション
+function playWithAnimation(hand) {
+    const jankenForm = document.querySelector('.janken-form');
+    const animationArea = document.createElement('div');
+    animationArea.className = 'mt-4';
+    animationArea.innerHTML = `
+        <h2>じゃんけん…</h2>
+        <div style="font-size: 3rem;">✊ ✌️ 🖐️</div>
+    `;
+    jankenForm.replaceWith(animationArea);
+
+    setTimeout(() => {
+        window.location.href = `/play?hand=${encodeURIComponent(hand)}`;
+    }, 1000);
+}
