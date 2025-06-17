@@ -1,30 +1,33 @@
-<div xmlns:th="http://www.thymeleaf.org"
-     th:with="title='index :: title', content='index :: content'"
-     th:replace="~{base :: layout}">
-
-    <th:block th:fragment="title">
-        <title>じゃんけんゲーム</title>
-    </th:block>
-
-    <div th:fragment="content">
-        <div class="position-absolute top-0 mt-5 text-end">
-            <span class="fw-bold">ようこそ <span th:text="${username}"></span> さん</span>
-        </div>
-        <div class="container text-center">
-            <h1 class="mb-4">じゃんけんゲーム</h1>
-            <form action="/play" method="get" class="janken-form">
-                <div class="d-flex flex-column gap-2">
-                    <button class="btn btn-primary" type="button" onclick="playWithAnimation('グー')">✊ グー</button>
-                    <button class="btn btn-primary" type="button" onclick="playWithAnimation('チョキ')">✌️ チョキ</button>
-                    <button class="btn btn-primary" type="button" onclick="playWithAnimation('パー')">🖐️ パー</button>
-                </div>
-            </form>
-            <form action="/ranking" method="get" class="mb-4">
-                <button class="btn btn-success" type="submit">🏆 勝利数ランキングを見る</button>
-            </form>
-            <form th:action="@{/logout}" method="post">
-                <button class="btn btn-danger" type="submit">ゲームをやめる(ログアウト)</button>
-            </form>
-        </div>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>じゃんけんゲーム</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body class="bg-light d-flex justify-content-center align-items-center custom-height">
+    <div class="position-absolute top-0 mt-5 text-end">
+        <span class="fw-bold">ようこそ <span th:text="${username}"></span> さん</span>
     </div>
-</div>
+
+    <div class="container text-center">
+        <h1 class="mb-4">じゃんけんゲーム</h1>
+        <form action="/play" method="get" class="janken-form">
+            <div class="d-flex flex-column gap-2">
+                <button class="btn btn-primary" type="button" onclick="playWithAnimation('グー')">✊ グー</button>
+                <button class="btn btn-primary" type="button" onclick="playWithAnimation('チョキ')">✌️ チョキ</button>
+                <button class="btn btn-primary" type="button" onclick="playWithAnimation('パー')">🖐️ パー</button>
+            </div>
+        </form>
+        <form action="/ranking" method="get" class="mb-4">
+            <button class="btn btn-success" type="submit">🏆 勝利数ランキングを見る</button>
+        </form>
+        <form th:action="@{/logout}" method="post">
+            <button class="btn btn-danger" type="submit">ゲームをやめる(ログアウト)</button>
+        </form>
+    </div>
+    <script th:src="@{/main.js}"></script>
+</body>
+</html>
