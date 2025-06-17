@@ -21,11 +21,11 @@
                 <button class="btn btn-primary" type="submit" name="hand" value="パー">🖐️ パー</button>
             </div>
         </form>
-        <form th:action="@{/logout}" method="post" class="mb-2">
-            <button class="btn btn-danger" type="submit">ゲームをやめる(ログアウト)</button>
-        </form>
-        <form action="/ranking" method="get">
+        <form action="/ranking" method="get" class="mb-4">
             <button class="btn btn-success" type="submit">🏆 勝利数ランキングを見る</button>
+        </form>
+        <form th:action="@{/logout}" method="post">
+            <button class="btn btn-danger" type="submit">ゲームをやめる(ログアウト)</button>
         </form>
     </div>
 </body>
