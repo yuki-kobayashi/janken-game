@@ -35,7 +35,7 @@ public class SecurityConfig {
         return authProvider;
     }
 
-    // ユーザー認証処理の設定
+    // プレイヤー認証処理の設定
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http // HTTPリクエストごとのアクセスルール

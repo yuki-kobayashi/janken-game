@@ -32,7 +32,7 @@ public class User implements UserDetails  {
     private int winCount = 0;
     //デフォルトコンストラクタ
     public User() {}
-    // ユーザー名とパスワードを指定してインスタンスを作るコンストラクタ
+    // プレイヤー名とパスワードを指定してインスタンスを作るコンストラクタ
     public User(String username, String email,  String password) {
         this.username = username;
         this.email = email;
@@ -118,6 +118,6 @@ public class User implements UserDetails  {
 
     @Override
     public boolean isEnabled() {
-        return true; // 有効なユーザー
+        return true; // 有効なプレイヤー
     }
 }

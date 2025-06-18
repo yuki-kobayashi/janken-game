@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 // JpaRepository<User, Long>を継承することで、Userエンティティの基本的なDB操作を自動生成
-// Springが自動的にSQLを組み立て、ユーザーを検索できる
+// Springが自動的にSQLを組み立て、プレイヤーを検索できる
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByEmail(String email);

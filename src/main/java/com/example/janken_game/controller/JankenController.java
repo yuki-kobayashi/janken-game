@@ -23,7 +23,7 @@ public class JankenController {
         if (authentication != null && authentication.isAuthenticated()) {
             String email = authentication.getName();
 
-            // ユーザー情報をデータベースから取得
+            // プレイヤー情報をデータベースから取得
             User user = userRepository.findByEmail(email).orElse(null);
 
             if (user != null) {
