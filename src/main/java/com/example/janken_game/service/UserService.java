@@ -11,9 +11,8 @@ import java.util.*;
 
 @Service
 public class UserService implements UserDetailsService {
-
-    private final UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder;
+    private final UserRepository userRepository; // ユーザー情報の保存・検索用のリポジトリ
+    private final PasswordEncoder passwordEncoder; // パスワードをハッシュ化、検証するためのコンポーネント
 
     @Autowired
     public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
@@ -22,13 +21,13 @@ public class UserService implements UserDetailsService {
     }
 
     public User registerUser(String username, String email, String rawPassword) {
-        String encodedPassword = passwordEncoder.encode(rawPassword);
-        User user = new User(username, email, encodedPassword);
-        return userRepository.save(user);
+        String encodedPassword = passwordEncoder.encode(rawPassword); // パスワードをハッシュ化
+        User user = new User(username, email, encodedPassword); // ユーザーオブジェクト生成
+        return userRepository.save(user); // DBに保存
     }
 
     public Optional<User> findByEmail(String email) {
-        return userRepository.findByEmail(email);
+        return userRepository.findByEmail(email); // メールアドレスでユーザーを検索
     }
 
     // メールアドレスで認証
