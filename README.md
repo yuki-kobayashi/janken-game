@@ -89,7 +89,7 @@ Bootstrapを用いた直感的なUIと、Spring Bootによるシンプルで安�
 
 4.ER図作成
 
-本ECサイトのエンティティ構造は以下の通り。
+本ECサイトのエンティティ構造は以下の通り。  
 ![ER図](./janken_game_erd.png)
 
 
