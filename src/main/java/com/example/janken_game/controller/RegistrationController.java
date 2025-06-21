@@ -70,10 +70,10 @@ public class RegistrationController {
             return "register";
         }
 
+        // チェックに問題がなければパスワードを暗号化し、DBに保存
         String encodedPassword = passwordEncoder.encode(password);
         User user = new User(username, email, encodedPassword);
         userRepository.save(user);
-
         return "redirect:/register/complete";
     }
 

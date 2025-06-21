@@ -17,6 +17,7 @@ public class JankenController {
     private final String[] hands = {"グー", "チョキ", "パー"};
     private final UserRepository userRepository;
 
+    // トップページ(じゃんけんゲーム画面)の表示
     @GetMapping("/")
     public String showHome(Model model, Authentication authentication) {
         // ログインしているか判定
@@ -40,6 +41,7 @@ public class JankenController {
         String cpuHand = hands[random.nextInt(3)];
 
         String result;
+        // プレイヤーが選択した手とランダムな手を比較
         if (playerHand.equals(cpuHand)) {
             result = "あいこ";
         } else if ((playerHand.equals("グー") && cpuHand.equals("チョキ")) ||
@@ -48,11 +50,11 @@ public class JankenController {
             result = "あなたの勝ち！";
 
             // 勝利数カウント
-            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+            Authentication auth = SecurityContextHolder.getContext().getAuthentication(); // ログイン中のプレイヤー情報取得
             String email = auth.getName();
             User user = userRepository.findByEmail(email).orElse(null);
             if (user != null) {
-                user.incrementWinCount();
+                user.incrementWinCount(); // 勝ちの場合、ログイン中のプレイヤーの勝利数をインクリメント
                 userRepository.save(user);
             }
         } else {
@@ -66,6 +68,7 @@ public class JankenController {
         return "result";
     }
 
+    // コンストラクタ
     public JankenController(UserRepository userRepository) {
         this.userRepository = userRepository;
     }

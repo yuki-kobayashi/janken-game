@@ -19,7 +19,7 @@ public class RankingController {
     public String showRanking(Model model) {
         List<User> users = userRepository.findAll()
                 .stream()
-                .sorted((u1, u2) -> Integer.compare(u2.getWinCount(), u1.getWinCount()))
+                .sorted((u1, u2) -> Integer.compare(u2.getWinCount(), u1.getWinCount())) // 降順ソート
                 .toList();
 
         model.addAttribute("users", users);

@@ -13,11 +13,10 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-// このクラスが設定クラスであることを示す
-@Configuration
+@Configuration // このクラスが設定クラスであることを示すSpringの記述方法
 public class SecurityConfig {
 
-    @Autowired
+    @Autowired // 自動でインスタンスを渡すためのSpringの記述方法
     private final UserService userService;
     private final PasswordEncoder passwordEncoder;
 
@@ -26,8 +25,8 @@ public class SecurityConfig {
         this.passwordEncoder = passwordEncoder;
     }
 
-    // 認証プロバイダの設定
-    @Bean
+    // 認証プロバイダの設定(DBに保存されたユーザー情報で認証を行う)
+    @Bean //他のクラスに@Autowiredでオブジェクトを渡すようにするためのSpringの記述方法
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
         authProvider.setUserDetailsService(userService);
@@ -61,14 +60,14 @@ public class SecurityConfig {
                 .permitAll()
             )
 
-            // Frameの表示とCSRF無効化を行う(H2コンソール用の設定)
+            // Frameの表示とCSRF無効化を行う(開発時のみ必要だったH2コンソール用の設定)
             .csrf(csrf -> csrf.ignoringRequestMatchers("/h2-console/**"))
             .headers(headers -> headers.frameOptions().sameOrigin());
 
         return http.build();
     }
 
-    // 認証マネージャーを取得するBean（ログイン処理に必要）
+    // 認証マネージャーを取得するBean(ログイン処理に必要)
     @Bean
     public AuthenticationManager authenticationManager(
         AuthenticationConfiguration authenticationConfiguration

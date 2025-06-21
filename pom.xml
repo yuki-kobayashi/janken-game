@@ -30,39 +30,39 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
-
+		<!-- HTMLテンプレートエンジン -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
-
+		<!-- 基本機能 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
+		<!-- テストの補助ライブラリ -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
+		<!-- Spring Securityの基本機能 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
     	</dependency>
-
+		<!-- 開発用DB設定 -->
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 	    </dependency>
-
+		<!-- JPA実装 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-
+		<!-- 本番用DB設定 -->
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
@@ -70,7 +70,7 @@
 		</dependency>
 
 	</dependencies>
-
+	<!-- アプリをビルドして実行できるようにするプラグイン -->
 	<build>
 		<plugins>
 			<plugin>

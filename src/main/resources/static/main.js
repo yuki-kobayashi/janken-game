@@ -2,7 +2,7 @@
 function togglePassword(fieldId, iconElement) {
     const passwordField = document.getElementById(fieldId);
     const icon = iconElement.querySelector('i');
-
+    // 要素がパスワード入力の場合、テキストに変更
     if (passwordField.type === "password") {
         passwordField.type = "text";
         icon.classList.remove("fa-eye");
@@ -23,7 +23,7 @@ function playWithAnimation(hand) {
         <h2>じゃんけん…</h2>
         <div style="font-size: 3rem;">✊ ✌️ 🖐️</div>
     `;
-    jankenForm.replaceWith(animationArea);
+    jankenForm.replaceWith(animationArea); // フォームとアニメーションを入れ替えて表示
 
     setTimeout(() => {
         window.location.href = `/play?hand=${encodeURIComponent(hand)}`;
@@ -44,5 +44,5 @@ function startWelcomeTransition() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    startWelcomeTransition();
+    startWelcomeTransition(); // ウェルカム画面に入った際、自動でトップ画面へ遷移
 });

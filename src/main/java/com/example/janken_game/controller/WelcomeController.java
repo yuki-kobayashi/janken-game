@@ -25,6 +25,7 @@ public class WelcomeController {
         if (authentication != null && authentication.isAuthenticated()) {
             String email = authentication.getName();
             User user = userRepository.findByEmail(email).orElse(null);
+            // ログインしているプレイヤー情報が取得できれば、プレイヤー名を画面表示
             if (user != null) {
                 username = user.getUsername();
             }
