@@ -30,10 +30,12 @@ Bootstrapを用いた直感的なUIと、Spring Bootによるシンプルで安�
 - 言語：Java 24.0.1
 - フレームワーク：Spring Boot 3.5.0
 - フロントエンド：HTML5 / CSS3 / Bootstrap 5.3.3 / JavaScript
+- データベース：PostgreSQL(Render提供のデータベースを使用)
 - デプロイ：Render
 - 認証：Spring Security
 - バージョン管理：GitHub
 - 開発環境：Windows11 / VSCode
+- その他使用ツール：DBeaver(RenderではWeb UIなどを使って直接データベースを開く機能が無いため)
 
 ---
 
