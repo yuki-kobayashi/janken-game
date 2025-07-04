@@ -61,11 +61,25 @@ public class JankenController {
             result = "あなたの負け…😭";
         }
 
-        model.addAttribute("playerHand", playerHand);
-        model.addAttribute("cpuHand", cpuHand);
+        model.addAttribute("playerHand", getEmojiHand(playerHand));
+        model.addAttribute("cpuHand", getEmojiHand(cpuHand));
         model.addAttribute("result", result);
 
         return "result";
+    }
+
+    // 絵文字付きの手を返す
+    private String getEmojiHand(String hand) {
+        switch (hand) {
+            case "グー":
+                return "✊ グー";
+            case "チョキ":
+                return "✌️ チョキ";
+            case "パー":
+                return "🖐️ パー";
+            default:
+                return hand;
+        }
     }
 
     // コンストラクタ
