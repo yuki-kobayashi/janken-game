@@ -43,11 +43,11 @@ public class JankenController {
         String result;
         // プレイヤーが選択した手とランダムな手を比較
         if (playerHand.equals(cpuHand)) {
-            result = "あいこ";
+            result = "あいこ🤝";
         } else if ((playerHand.equals("グー") && cpuHand.equals("チョキ")) ||
                    (playerHand.equals("チョキ") && cpuHand.equals("パー")) ||
                    (playerHand.equals("パー") && cpuHand.equals("グー"))) {
-            result = "あなたの勝ち！";
+            result = "あなたの勝ち！🎉";
 
             // 勝利数カウント
             Authentication auth = SecurityContextHolder.getContext().getAuthentication(); // ログイン中のプレイヤー情報取得
@@ -58,7 +58,7 @@ public class JankenController {
                 userRepository.save(user);
             }
         } else {
-            result = "あなたの負け…";
+            result = "あなたの負け…😭";
         }
 
         model.addAttribute("playerHand", playerHand);
