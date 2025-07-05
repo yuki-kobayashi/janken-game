@@ -55,7 +55,7 @@ public class RegistrationController {
         }
 
         // プレイヤー名の形式チェック(日本語・英数字OK、記号NG)
-        if (!username.matches("^[\\p{IsHan}\\p{IsHiragana}\\p{IsKatakana}a-zA-Z0-9]+$")) {
+        if (!username.matches("^[ぁ-んァ-ヶー一-龥a-zA-Z0-9]+$")) {
             model.addAttribute("error", "プレイヤー名に記号は使用できません。");
             model.addAttribute("username", username);
             model.addAttribute("email", email);
