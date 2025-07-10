@@ -180,7 +180,7 @@ if (!email.matches("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")) {
     return "register";
 }
 ```
-- **レスポンシブ対応**：Bootstrapを活用し、スマホ画面でも快適に操作可能なUIを実現。各ユーティリティクラスを用い、ボタン配置やテキストの中央寄せ、スペーシングなどを柔軟に調整。
+- **レスポンシブ対応**：Bootstrapを活用し、スマホ画面でも快適に操作可能なUIを実現。各ユーティリティクラスを用い、ボタン配置やテキストの中央寄せ、スペーシングなどを調整。
 ```html
 <div class="container text-center">
     <form action="/play" method="get" class="janken-form">
